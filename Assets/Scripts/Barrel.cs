@@ -9,5 +9,15 @@ public class Barrel : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+
+        CheckBounds();
+    }
+    
+    private void CheckBounds()
+    {
+        if (transform.position.y < -8f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
