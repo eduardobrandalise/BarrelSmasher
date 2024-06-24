@@ -59,14 +59,28 @@ public class Hammer : MonoBehaviour
         // print("Attack ended");
         // _animator.SetTrigger(Idle);
         _isAttacking = false;
+        print("Attack ended");
     }
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        print( other.gameObject.name );
         if (other.gameObject.CompareTag("Barrel"))
         {
             Destroy(other.gameObject);
         }
     }
+    
+    //Check if animation has ended.
+    // private void CheckEndOfAnimation()
+    // {
+    //     if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && AnimatorIsPlaying())
+    //     {
+    //         EndAttack();
+    //     }
+    // }
+    //
+    // bool AnimatorIsPlaying(){
+    //     return _animator.GetCurrentAnimatorStateInfo(0).length >
+    //            _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+    // }
 }
